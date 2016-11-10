@@ -68,6 +68,16 @@
                 </h1>
             </div>
         </div>
+        <div id="divcat">
+            <form action="lib.php" method="post">
+                <label for="cat">Categorie:</label>
+                <select>
+                    <option></option>
+                    
+                </select>
+            </form>
+            
+        </div>
         <!-- /.row -->
 
         <!-- Project One -->
