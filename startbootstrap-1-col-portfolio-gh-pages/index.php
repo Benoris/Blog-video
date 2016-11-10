@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,13 +42,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Vidéos</a>
+                <a class="navbar-brand" href="index.php">Videos</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="add.php">Ajouter une vidéo</a>
+                        <a href="add.php">Ajouter une video</a>
                     </li>
                 </ul>
             </div>
@@ -194,7 +197,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Linh &copy; Blog-video</p>
                 </div>
             </div>
             <!-- /.row -->
