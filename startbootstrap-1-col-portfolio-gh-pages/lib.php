@@ -14,3 +14,4 @@ function connectDb ()
     $bd = new PDO ('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password,$pdo_options);
     return $bd;
 }
+

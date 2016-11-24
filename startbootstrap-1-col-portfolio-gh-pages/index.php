@@ -84,7 +84,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
@@ -102,7 +102,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
@@ -120,7 +120,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
@@ -139,7 +139,7 @@
 
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
@@ -157,7 +157,7 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
