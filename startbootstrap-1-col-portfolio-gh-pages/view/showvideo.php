@@ -81,19 +81,21 @@
         <!-- /.row -->
 
         <!-- Project One -->
+        <?php foreach ($videos as $video) :?>
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <iframe width="650" height="300" src="<?php echo ''; ?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="650" height="300" src="<?php echo $video['Lien'] ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
-                <h3>Project One</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+                <h3><?php echo $video['Titre'] ?></h3>
+                <h4><?php echo $video['SousTitre'] ?></h4>
+                <p><?php echo $video['Description'] ?></p>
                 <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
         </div>
+        <?php endforeach; ?>
         <!-- /.row -->
 
         <hr>
