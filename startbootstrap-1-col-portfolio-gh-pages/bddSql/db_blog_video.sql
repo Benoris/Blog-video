@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `db_blog_video`
 --
-
+CREATE DATABASE db_blog_video;
+USE db_blog_video;
 -- --------------------------------------------------------
 
 --
