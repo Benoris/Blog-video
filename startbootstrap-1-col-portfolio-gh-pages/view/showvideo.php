@@ -69,7 +69,7 @@
             </div>
         </div>
         <div id="divcat">
-            <form action="lib.php" method="post">
+            <form action="htmltools.php" method="post">
                 <label for="cat">Categorie:</label>
                 <select>
                     <option></option>
@@ -85,10 +85,11 @@
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                    <iframe width="650" height="300" src="<?php echo $video['Lien'] ?>" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="650" height="300" src="<?php echo $video['Lien']//le lien de la vidéo ?>" frameborder="0" allowfullscreen></iframe>
                 </a>
             </div>
             <div class="col-md-5">
+                <?php//Ici on récupère les données pour les ajouter dans notre site ?>
                 <h3><?php echo $video['Titre'] ?></h3>
                 <h4><?php echo $video['SousTitre'] ?></h4>
                 <p><?php echo $video['Description'] ?></p>
