@@ -1,7 +1,5 @@
 <?php
 
-require_once '../model/video.php';
-
 addVideo($title, $soustitre, $description, $link, $mdp, $categorie);
 
 header("Location:listvideo.php");
@@ -20,26 +18,28 @@ if (filter_has_var(INPUT_POST,'submit')) {
     $mdp = trim(filter_input(INPUT_POST,'pwd',FILTER_SANITIZE_STRING));
     $categorie = filter_input(INPUT_POST, 'categorie',FILTER_VALIDATE_INT);
                                               // vérification des données saisies
-    if (empty($LastName))
-        $errors['LastName'] = "Le nom ne peut pas être vide";
-    if (empty($FirstName))
-        $errors['FirstName'] = "Le prénom ne peut pas être vide";
-    if (empty($Pseudo))
-        $errors['Pseudo'] = "Le pseudo ne peut pas être vide";
-    if (empty($Pwd))
-        $errors['Pwd'] = "Le mot de passe ne peut pas être vide";
-    if ($Pwd != $Pwd2)
-        $errors['Pwd2'] = "Les deux mots de passes sont différents";
+    if (empty($titre)){
+        $errors['titre'] = "Le titre ne peut pas être vide";
+    }
+    if (empty($soustitre)){
+        $errors['soustitre'] = "Le sous-titre ne peut pas être vide";
+    }
+    if (empty($description)){
+        $errors['description'] = "La description ne peut pas être vide";
+    }
+    if (empty($link)){
+        $errors['link'] = "Le lien ne peut pas être vide";
+    }
     
                             // si il n'y a pas d'erreur dans les données saisies
     if (empty($errors)) {
 
-            require_once 'model/users.php';
+            require_once 'model/video.php';
             if (is_numeric($idUser)) {
-                updateUser($idUser,$LastName, $FirstName, $Pseudo, $Pwd);
+                updateVideo($idVideo,$title, $soustitre, $description, $link, $mdp,$categorie);
                 SetMessageFlash("Utilisateur modifié ($FirstName $LastName / $Pseudo)");        
             } else {
-            $idUser = addUser($LastName, $FirstName, $Pseudo, $Pwd);
+            $idUser = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
             SetMessageFlash("Utilisateur ajouté ($FirstName $LastName / $Pseudo)");
             }
             header("location:listusers.html");
