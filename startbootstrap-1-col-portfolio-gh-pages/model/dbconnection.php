@@ -15,3 +15,7 @@ function connectDb ()
     return $bd;
 }
 
+function GetVideo()
+{
+    
+}
