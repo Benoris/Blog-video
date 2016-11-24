@@ -49,6 +49,11 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie)
     }
 }
 
+function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie)
+{
+    
+}
+
 /**
  * fonction qui permet de créer un <select></select> avec des information comme son nom et ses options
  * @param type $name
