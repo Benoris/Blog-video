@@ -74,10 +74,10 @@ require_once 'htmltools.php';
                 <label for="cat">Categorie:</label>
                 <select name="categorie">
                     <?php foreach ($categories as $categorie) :?>
-                    <option><?php echo $categorie['NomCategorie']; ?></option>                    
+                    <option value="<?php echo $categorie['idCategorie']; ?>"><?php echo $categorie['NomCategorie']; ?></option>                    
                     <?php endforeach; ?>
                 </select>
-                <input type="hidden" name="idCategorie" value="<?php echo $categorie['idCategorie']; ?>">
+                <!--<input type="hidden" name="idCategorie" value="<?php// echo $categorie['idCategorie']; ?>">-->
                 <input type="submit" name="rechercher" value="Rechercher">
             </form>
             
