@@ -18,6 +18,13 @@ function getVideo() {
     return $query->fetchAll();
 }
 
+function getCategorie()
+{
+    $query = connectDb()->prepare('SELECT NomCategorie, idCategorie FROM categorie ');
+    $query->execute(array());
+    return $query->fetchAll();
+}
+
 /**
  * fonction qui ajoute des données (vidéo)
  * @param type $title
@@ -68,33 +75,6 @@ WHERE idVideo = :idvideo ;";
     else{
         return NULL;
     }
-}
-
-/**
- * fonction qui permet de créer un <select></select> avec des information comme son nom et ses options
- * @param type $name
- * @param type $options
- * @param type $default
- * @param type $class
- * @param type $id
- * @return string
- */
-function select($name, $options, $default = null, $class = null, $id = null) {
-    $element = '<select name="' . $name . '" ';
     if (!empty($id)) {
-        $element .= 'id="' . $id . '" ';
-    }
-    if (!empty($class)) {
-        $element .= 'class="' . $class . '" ';
-    }
-
-    $element .= '>\n';
-    foreach ($options as $key => $value)
-        if ($key == $default)
-            $element .= "<option value=\"$key\" selected=\"selected\">$value</option>\n";
-        else
-            $element .= "<option value=\"$key\" >$value</option>\n";
-
-    $element .= "</select>";
-    return $element;
+    if (!empty($class)) { 
 }

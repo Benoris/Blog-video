@@ -8,5 +8,6 @@
 require_once 'model/video.php';
 
 $videos = getVideo();
+$categories = getCategorie();
 
 include 'view/showvideo.php';

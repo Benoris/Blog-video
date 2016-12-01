@@ -1,5 +1,5 @@
 <?php
-
+require_once 'htmltools.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,13 +69,17 @@
             </div>
         </div>
         <div id="divcat">
-            <form action="htmltools.php" method="post">
+            
+            <form action="" method="post">
                 <label for="cat">Categorie:</label>
-                <select>
-                    <option></option>
-                    
-                </select>
+                <select name="categorie">
+                    <?php foreach ($categories as $categorie) :?>
+                    <option><?php echo $categorie['NomCategorie']; ?></option>
+                    <?php endforeach; ?>
+                </select>                
+                <input type="submit" name="rechercher" value="Rechercher">
             </form>
+            
             
         </div>
         <!-- /.row -->
