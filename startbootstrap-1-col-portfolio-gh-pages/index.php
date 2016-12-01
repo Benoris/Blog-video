@@ -11,10 +11,9 @@ try {
             require_once 'controllers/listvideo.php';
             break;
         case 'addvideo':
-            require_once 'controllers/addvideo.php';
+            require_once 'view/addform.php';
             break;
         default:
-            require_once 'views/404.php';
     }
 } catch (Exception $e) {
     require_once 'views/500.php';

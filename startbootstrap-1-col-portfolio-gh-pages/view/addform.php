@@ -1,6 +1,4 @@
-<?php 
-
-?>
+<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>1 Col Portfolio - Start Bootstrap Template</title>
+        <title>Ajouter une vidéo</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,11 +66,28 @@
                     </h1>
                 </div>
             </div>
-            <!-- /.row -->
-            <!-- /.row -->
-
-            <hr>
-
+            <div class="row">
+                <form action="addvideo.php" method="post">
+                    <label for="title">Titre: </label>
+                    <input type="text" name="title" id="title" required="">
+                    <br>
+                    <label for="soustitre">Sous-titre: </label>
+                    <input type="text" name="soustitle" id="soustitle" required="">
+                    <br>
+                    <label for="description">Description: </label><br>
+                    <textarea name="description" id="description" rows="4" cols="50">
+                    </textarea><br>
+                    <label for="link">Lien de partage: </label>
+                    <input type="text" size="60" name="link" id="link" required="">
+                    <br>
+                    <label for="pwd">Mot de passe:</label>
+                    <input type="password" name="pwd" id="pwd">
+                    <br>
+                    <label for="confirm">Confirmez le mot de passe:</label>
+                    <input type="password" name="confirm_pwd" id="confirm_pwd">
+                    <p><input type="submit" name="send" id="send" value="Envoyer"></p>
+                </form>
+            </div>
             <!-- Footer -->
             <footer>
                 <div class="row">

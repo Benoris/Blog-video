@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>1 Col Portfolio - Start Bootstrap Template</title>
+    <title>Blog-vidéo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="view/addform.php">Ajouter une video</a>
+                        <a href="index.php?action=addvideo">Ajouter une video</a>
                     </li>
                 </ul>
             </div>
@@ -63,8 +63,8 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Page Heading
-                    <small>Secondary Text</small>
+                <h1 class="page-header">Bienvenu dans notre blog-vidéo
+                    <small>Postez vos vidéo favorites!</small>
                 </h1>
             </div>
         </div>

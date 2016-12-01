@@ -35,16 +35,14 @@ if (filter_has_var(INPUT_POST,'submit')) {
     if (empty($errors)) {
 
             require_once 'model/video.php';
-            if (is_numeric($idUser)) {
+            if (is_numeric($idVideo)) {
                 updateVideo($idVideo,$title, $soustitre, $description, $link, $mdp,$categorie);
-                SetMessageFlash("Utilisateur modifié ($FirstName $LastName / $Pseudo)");        
             } else {
-            $idUser = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
-            SetMessageFlash("Utilisateur ajouté ($FirstName $LastName / $Pseudo)");
+            $idVideo = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
             }
             header("location:listusers.html");
             exit;
     }
 }
 
-include 'views/userform.php';
+include 'views/addform.php';

@@ -12,8 +12,7 @@ require_once 'dbconnection.php';
  * fonction qui retourne une liste avec les données sur les vidéos
  * @return type
  */
-function getVideo()
-{
+function getVideo() {
     $query = connectDb()->prepare('SELECT `idVideo`, `Titre`, `SousTitre`, `Description`, `Lien`, `MDP` FROM `video`');
     $query->execute(array());
     return $query->fetchAll();
@@ -29,8 +28,7 @@ function getVideo()
  * @param type $categorie
  * @return type
  */
-function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) 
-{
+function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
     $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,MDP,idCategorie) " .
             " VALUES (:Titre, :SousTitre, :Description, :Lien, :MDP, :idCategorie)";
@@ -49,9 +47,27 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie)
     }
 }
 
-function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie)
-{
-    
+function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie) {
+    $db = connectDb();
+    $sql = "UPDATE video
+SET Description=:description, Titre=:titre, SousTitre =:soustitre, Lien = :lien, MDP = :mdp, idCategorie = :categorie
+WHERE idVideo = :idvideo ;";
+    $request = $db->prepare($sql);
+    if($request->execute(array(
+        'description' => $description,
+        'soustitre' => $soustitre,
+        'titre' => $title,
+        'lien' => $link,
+        'mdp' => $mdp,
+        'categorie' => $categorie,
+        'idvideo' => $idVideo
+    )))
+    {
+        return  $db->lastInsertId();
+    }
+    else{
+        return NULL;
+    }
 }
 
 /**
@@ -63,13 +79,12 @@ function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $c
  * @param type $id
  * @return string
  */
-function select($name, $options, $default=null, $class=null, $id=null)
-{
+function select($name, $options, $default = null, $class = null, $id = null) {
     $element = '<select name="' . $name . '" ';
-    if (!empty($id)) { 
+    if (!empty($id)) {
         $element .= 'id="' . $id . '" ';
     }
-    if (!empty($class)) { 
+    if (!empty($class)) {
         $element .= 'class="' . $class . '" ';
     }
 
