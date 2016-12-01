@@ -13,6 +13,11 @@ try {
         case 'addvideo':
             require_once 'view/addform.php';
             break;
+        case 'register':
+            echo "coucou";
+            //require_once 'controllers/addvideo.php';
+           //break;
+            var_dump($_POST) ;
         default:
     }
 } catch (Exception $e) {

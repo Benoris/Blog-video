@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">Videos</a>
+                    <a class="navbar-brand" href="index.php?action=listvideo">Videos</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,25 +67,44 @@
                 </div>
             </div>
             <div class="row">
-                <form action="addvideo.php" method="post">
+                <form action="index.php?action=register" method="post">
+                    <div class="input-group">
                     <label for="title">Titre: </label>
                     <input type="text" name="title" id="title" required="">
+                    </div>
                     <br>
+                    <div class="input-group">
                     <label for="soustitre">Sous-titre: </label>
                     <input type="text" name="soustitle" id="soustitle" required="">
+                    </div>
                     <br>
+                    <div class="input-group">
                     <label for="description">Description: </label><br>
                     <textarea name="description" id="description" rows="4" cols="50">
-                    </textarea><br>
+                    </textarea>
+                    </div>
+                    <br>
+                    <div class="input-group">
                     <label for="link">Lien de partage: </label>
                     <input type="text" size="60" name="link" id="link" required="">
+                    </div>
                     <br>
+                    <div class="input-group">
+                        <select name="categorie">                            
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="input-group">
                     <label for="pwd">Mot de passe:</label>
                     <input type="password" name="pwd" id="pwd">
+                    </div>
                     <br>
+                    <div class="input-group">
                     <label for="confirm">Confirmez le mot de passe:</label>
                     <input type="password" name="confirm_pwd" id="confirm_pwd">
+                    </div>
                     <p><input type="submit" name="send" id="send" value="Envoyer"></p>
+                    
                 </form>
             </div>
             <!-- Footer -->

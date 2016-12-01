@@ -1,10 +1,5 @@
 <?php
 
-addVideo($title, $soustitre, $description, $link, $mdp, $categorie);
-
-header("Location:listvideo.php");
-
-
 $erreurs = array();
 
 if (filter_has_var(INPUT_POST,'submit')) {
@@ -37,6 +32,7 @@ if (filter_has_var(INPUT_POST,'submit')) {
             require_once 'model/video.php';
             if (is_numeric($idVideo)) {
                 updateVideo($idVideo,$title, $soustitre, $description, $link, $mdp,$categorie);
+                header("Location:listvideo.php");
             } else {
             $idVideo = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
             }
@@ -45,4 +41,3 @@ if (filter_has_var(INPUT_POST,'submit')) {
     }
 }
 
-include 'views/addform.php';
