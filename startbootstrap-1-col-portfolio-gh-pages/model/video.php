@@ -25,6 +25,15 @@ function getCategorie()
     return $query->fetchAll();
 }
 
+function filterVideo($idCategorie)
+{
+    $bdd = connectDb();
+    $sql = "SELECT * FROM video WHERE `idCategorie` =?";
+    $query = $bdd->prepare($sql);
+    $query->execute(array($idCategorie));
+    return $query->fetch();
+}
+
 /**
  * fonction qui ajoute des données (vidéo)
  * @param type $title

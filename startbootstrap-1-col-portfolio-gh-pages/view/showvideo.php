@@ -70,13 +70,14 @@ require_once 'htmltools.php';
         </div>
         <div id="divcat">
             
-            <form action="" method="post">
+            <form action="controllers/filtre.php" method="post">
                 <label for="cat">Categorie:</label>
                 <select name="categorie">
                     <?php foreach ($categories as $categorie) :?>
-                    <option><?php echo $categorie['NomCategorie']; ?></option>
+                    <option><?php echo $categorie['NomCategorie']; ?></option>                    
                     <?php endforeach; ?>
-                </select>                
+                </select>
+                <input type="hidden" name="idCategorie" value="<?php echo $categorie['idCategorie']; ?>">
                 <input type="submit" name="rechercher" value="Rechercher">
             </form>
             
