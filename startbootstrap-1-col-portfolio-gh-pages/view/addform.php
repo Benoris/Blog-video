@@ -90,8 +90,10 @@
                     </div>
                     <br>
                     <div class="input-group">
-                        <select name="categorie">                            
-                            <option></option>
+                        <select name="categorie">
+                            <?php foreach ($categories as $categorie) : ?>                                                           
+                            <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['NomCategorie']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="input-group">

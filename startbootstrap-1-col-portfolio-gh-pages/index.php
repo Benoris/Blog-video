@@ -11,12 +11,11 @@ try {
             require_once 'controllers/listvideo.php';
             break;
         case 'addvideo':
-            require_once 'view/addform.php';
+            require_once 'controllers/listcategorie.php';            
             break;
         case 'register':
-            echo "coucou";
-            //require_once 'controllers/addvideo.php';
-           //break;
+            require_once 'controllers/addvideo.php';
+           break;
             var_dump($_POST) ;
         default:
     }
