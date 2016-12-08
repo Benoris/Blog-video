@@ -7,8 +7,8 @@
 
 require_once 'model/video.php';
 
-$videos = getVideo();
+$videos = getVideos();
 $categories = getCategorie();
 
 include 'view/showvideo.php';
-include 'view/addform';
+include 'view/addform.php';

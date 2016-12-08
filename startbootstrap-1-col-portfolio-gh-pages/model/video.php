@@ -12,19 +12,35 @@ require_once 'dbconnection.php';
  * fonction qui retourne une liste avec les données sur les vidéos
  * @return type
  */
-function getVideo() {
+function getVideos() {
     $query = connectDb()->prepare('SELECT `idVideo`, `Titre`, `SousTitre`, `Description`, `Lien`, `MDP` FROM `video`');
     $query->execute(array());
     return $query->fetchAll();
 }
 
+function getVideo($idVideo){
+    $db = connectDb();
+    $query = $db->prepare("SELECT * FROM video WHERE idVideo = ?");
+    $query->execute(array($idVideo));
+    $line = $query->fetch();
+    return $line;
+    
+}
+/**
+ * 
+ * @return type
+ */
 function getCategorie()
 {
     $query = connectDb()->prepare('SELECT NomCategorie, idCategorie FROM categorie ');
     $query->execute(array());
     return $query->fetchAll();
 }
-
+/**
+ * 
+ * @param type $idCategorie
+ * @return type
+ */
 function filterVideo($idCategorie)
 {
     $bdd = connectDb();
@@ -63,6 +79,17 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
     }
 }
 
+/**
+ * 
+ * @param type $idVideo
+ * @param type $title
+ * @param type $soustitre
+ * @param type $description
+ * @param type $link
+ * @param type $mdp
+ * @param type $categorie
+ * @return type
+ */
 function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
     $sql = "UPDATE video
@@ -84,4 +111,13 @@ WHERE idVideo = :idvideo ;";
     else{
         return NULL;
     }
+}
+/**
+ * 
+ * @param type $idVideo
+ */
+function deleteVideo($idVideo){
+    $db = connectDb();
+    $query = $db->prepare("DELETE FROM video WHERE idVideo = ?");
+    $query->execute(array($idVideo));
 }

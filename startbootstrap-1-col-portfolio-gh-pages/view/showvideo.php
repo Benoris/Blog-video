@@ -98,7 +98,10 @@ require_once 'htmltools.php';
                 <h3><?php echo $video['Titre'] ?></h3>
                 <h4><?php echo $video['SousTitre'] ?></h4>
                 <p><?php echo $video['Description'] ?></p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <form method="post" action="deletevideo.php">
+                    <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
+                    <input class="btn btn-primary" type="submit" name="delete" value="Supprimer"><span class="glyphicon glyphicon-chevron-right"></span>
+                </form>
             </div>
         </div>
         <?php endforeach; ?>

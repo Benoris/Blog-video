@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/video.php';
+require_once '../model/video.php';
 
 if(filter_has_var(INPUT_POST, 'submit')){
     if(isset($_POST['idCategorie']))
@@ -9,8 +9,6 @@ if(filter_has_var(INPUT_POST, 'submit')){
     }
     
     filterVideo($id);
-    include 'view/showvideo.php';
+    include 'controllers/listvideo.php';
 }
-
-
 
