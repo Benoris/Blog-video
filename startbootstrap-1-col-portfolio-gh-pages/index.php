@@ -16,8 +16,12 @@ try {
         case 'register':
             require_once 'controllers/addvideo.php';
            break;
+       case 'deletevideo':
+            require_once 'controllers/deletevideo.php';
+           break;
             var_dump($_POST) ;
         default:
+        
     }
 } catch (Exception $e) {
     require_once 'views/500.php';
