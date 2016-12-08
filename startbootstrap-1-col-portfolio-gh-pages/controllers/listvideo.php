@@ -11,4 +11,3 @@ $videos = getVideos();
 $categories = getCategorie();
 
 include 'view/showvideo.php';
-include 'view/addform.php';

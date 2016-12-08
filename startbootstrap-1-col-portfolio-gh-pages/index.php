@@ -18,9 +18,7 @@ try {
            break;
        case 'deletevideo':
             require_once 'controllers/deletevideo.php';
-           break;
-            var_dump($_POST) ;
-        default:
+           break;            
         
     }
 } catch (Exception $e) {
