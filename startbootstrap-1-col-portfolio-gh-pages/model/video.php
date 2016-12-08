@@ -124,5 +124,5 @@ WHERE idVideo = :idvideo ;";
 function deleteVideo($idVideo){
     $db = connectDb();
     $query = $db->prepare("DELETE FROM video WHERE idVideo = ?");
-    $query->execute(array($idVideo));
+    return ($query->execute(array($idVideo)));
 }

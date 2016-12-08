@@ -14,7 +14,9 @@ if (filter_has_var(INPUT_POST, 'delete')) {
     if (is_array($video)) {
         $idVideo = $video['idVideo'];
 
-        deleteVideo($idVideo);
-            header("location:listvideo.php");            
+        if (deleteVideo($idVideo)) {
+            header("location:listvideo.php");
+            exit;
         }        
     }
+}
