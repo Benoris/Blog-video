@@ -62,8 +62,13 @@ function filterVideo($idCategorie)
  */
 function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
+    if($mdp != ""){
     $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,MDP,idCategorie) " .
             " VALUES (:Titre, :SousTitre, :Description, :Lien, :MDP, :idCategorie)";
+    }else{
+        $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,idCategorie) " .
+            " VALUES (:Titre, :SousTitre, :Description, :Lien, :idCategorie)";
+    }
     $request = $db->prepare($sql);
     if ($request->execute(array(
                 'Titre' => $title,

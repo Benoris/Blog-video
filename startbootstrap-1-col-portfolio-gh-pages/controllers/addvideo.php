@@ -4,8 +4,6 @@ $erreurs = array();
 
 if (filter_has_var(INPUT_POST,'submit')) {
      // récupération des données provenant des données saisies par l'utilisateur
-    
-    $idVideo = filter_input(INPUT_POST, 'idVideo',FILTER_VALIDATE_INT);
     $title = trim(filter_input(INPUT_POST,'title',FILTER_SANITIZE_STRING));
     $soustitre = trim(filter_input(INPUT_POST,'soustitre',FILTER_SANITIZE_STRING));
     $description = trim(filter_input(INPUT_POST,'description',FILTER_SANITIZE_STRING));
@@ -27,17 +25,19 @@ if (filter_has_var(INPUT_POST,'submit')) {
     }
     
                             // si il n'y a pas d'erreur dans les données saisies
-    if (empty($errors)) {
-
+    if (empty($errors)) 
+        {
             require_once 'model/video.php';
-            if (is_numeric($idVideo)) {
-                updateVideo($idVideo,$title, $soustitre, $description, $link, $mdp,$categorie);
-                header("Location:listvideo.php");
-            } else {
             $idVideo = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
-            }
-            header("location:listusers.html");
+            header("Location:listvideo.php");
             exit;
     }
+    else{
+        header("Location:listvideo.php");
+        exit();
+    }
 }
-
+else{
+    header("Location:listvideo.php");
+        exit();
+}

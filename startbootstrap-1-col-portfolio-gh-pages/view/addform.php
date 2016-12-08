@@ -67,46 +67,45 @@
                 </div>
             </div>
             <div class="row">
-                <form action="index.php?action=register" method="post">
-                    <div class="input-group">
-                    <label for="title">Titre: </label>
-                    <input type="text" name="title" id="title" required="">
+                <form action="controllers/addvideo.php" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="title">Titre: </label>
+                        <input type="text" name="title" id="title" required="">
                     </div>
                     <br>
-                    <div class="input-group">
-                    <label for="soustitre">Sous-titre: </label>
-                    <input type="text" name="soustitle" id="soustitle" required="">
+                    <div class="form-group">
+                        <label for="soustitre">Sous-titre: </label>
+                        <input type="text" name="soustitle" id="soustitle" required="">
                     </div>
                     <br>
-                    <div class="input-group">
-                    <label for="description">Description: </label><br>
-                    <textarea name="description" id="description" rows="4" cols="50">
-                    </textarea>
+                    <div class="form-group">
+                        <label for="description">Description: </label><br>
+                        <textarea name="description" id="description" rows="4" cols="50"></textarea>
                     </div>
                     <br>
-                    <div class="input-group">
-                    <label for="link">Lien de partage: </label>
-                    <input type="text" size="60" name="link" id="link" required="">
+                    <div class="form-group">
+                        <label for="link">Lien de partage: </label>
+                        <input type="text" size="60" name="link" id="link" required="">
                     </div>
                     <br>
-                    <div class="input-group">
+                    <div class="form-group">
                         <select name="categorie">
                             <?php foreach ($categories as $categorie) : ?>                                                           
-                            <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['NomCategorie']; ?></option>
+                                <option value="<?php echo $categorie['idCategorie'] ?>"><?php echo $categorie['NomCategorie']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="input-group">
-                    <label for="pwd">Mot de passe:</label>
-                    <input type="password" name="pwd" id="pwd">
+                    <div class="form-group">
+                        <label for="pwd">Mot de passe:</label>
+                        <input type="password" name="pwd" id="pwd">
                     </div>
                     <br>
-                    <div class="input-group">
-                    <label for="confirm">Confirmez le mot de passe:</label>
-                    <input type="password" name="confirm_pwd" id="confirm_pwd">
+                    <div class="form-group">
+                        <label for="confirm">Confirmez le mot de passe:</label>
+                        <input type="password" name="confirm_pwd" id="confirm_pwd">
                     </div>
                     <p><input type="submit" name="send" id="send" value="Envoyer"></p>
-                    
+
                 </form>
             </div>
             <!-- Footer -->
