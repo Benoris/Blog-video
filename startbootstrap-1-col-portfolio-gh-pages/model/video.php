@@ -18,31 +18,30 @@ function getVideos() {
     return $query->fetchAll();
 }
 
-function getVideo($idVideo){
+function getVideo($idVideo) {
     $db = connectDb();
     $query = $db->prepare("SELECT * FROM video WHERE idVideo = ?");
     $query->execute(array($idVideo));
     $line = $query->fetch();
     return $line;
-    
 }
+
 /**
  * 
  * @return type
  */
-function getCategorie()
-{
+function getCategorie() {
     $query = connectDb()->prepare('SELECT NomCategorie, idCategorie FROM categorie ');
     $query->execute(array());
     return $query->fetchAll();
 }
+
 /**
  * 
  * @param type $idCategorie
  * @return type
  */
-function filterVideo($idCategorie)
-{
+function filterVideo($idCategorie) {
     $bdd = connectDb();
     $sql = "SELECT * FROM video WHERE `idCategorie` =?";
     $query = $bdd->prepare($sql);
@@ -62,25 +61,24 @@ function filterVideo($idCategorie)
  */
 function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
-    if($mdp != ""){
-    $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,MDP,idCategorie) " .
-            " VALUES (:Titre, :SousTitre, :Description, :Lien, :MDP, :idCategorie)";
-    }else{
-        $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,idCategorie) " .
-            " VALUES (:Titre, :SousTitre, :Description, :Lien, :idCategorie)";
-    }
-    $request = $db->prepare($sql);
-    if ($request->execute(array(
-                'Titre' => $title,
-                'SousTitre' => $soustitre,
-                'Description' => $description,
-                'Lien' => $link,
-                'MDP' => sha1($mdp),
-                'idCategorie' => $categorie
-            ))) {
-        return $db->lastInsertID();
+    if ($mdp != "") {
+        $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,MDP,idCategorie) " .
+                " VALUES (?, ?, ?, ?, ?, ?)";
+        $request = $db->prepare($sql);
+        if ($request->execute(array($title, $soustitre, $description, $link, $mdp, $categorie))) {
+            return $db->lastInsertID();
+        } else {
+            return NULL;
+        }
     } else {
-        return NULL;
+        $sql = "INSERT INTO video(Titre,SousTitre,Description,Lien,idCategorie) " .
+                " VALUES (?, ?, ?, ?, ?)";
+        $request = $db->prepare($sql);
+        if ($request->execute(array($title, $soustitre, $description, $link, $categorie))) {
+            return $db->lastInsertID();
+        } else {
+            return NULL;
+        }
     }
 }
 
@@ -101,27 +99,26 @@ function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $c
 SET Description=:description, Titre=:titre, SousTitre =:soustitre, Lien = :lien, MDP = :mdp, idCategorie = :categorie
 WHERE idVideo = :idvideo ;";
     $request = $db->prepare($sql);
-    if($request->execute(array(
-        'description' => $description,
-        'soustitre' => $soustitre,
-        'titre' => $title,
-        'lien' => $link,
-        'mdp' => $mdp,
-        'categorie' => $categorie,
-        'idvideo' => $idVideo
-    )))
-    {
-        return  $db->lastInsertId();
-    }
-    else{
+    if ($request->execute(array(
+                'description' => $description,
+                'soustitre' => $soustitre,
+                'titre' => $title,
+                'lien' => $link,
+                'mdp' => $mdp,
+                'categorie' => $categorie,
+                'idvideo' => $idVideo
+            ))) {
+        return $db->lastInsertId();
+    } else {
         return NULL;
     }
 }
+
 /**
  * 
  * @param type $idVideo
  */
-function deleteVideo($idVideo){
+function deleteVideo($idVideo) {
     $db = connectDb();
     $query = $db->prepare("DELETE FROM video WHERE idVideo = ?");
     return ($query->execute(array($idVideo)));

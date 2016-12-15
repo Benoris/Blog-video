@@ -104,7 +104,7 @@
                         <label for="confirm">Confirmez le mot de passe:</label>
                         <input type="password" name="confirm_pwd" id="confirm_pwd">
                     </div>
-                    <p><input type="submit" name="send" id="send" value="Envoyer"></p>
+                    <p><input type="submit" name="submit" id="submit" value="Envoyer"></p>
 
                 </form>
             </div>
