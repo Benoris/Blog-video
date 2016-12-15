@@ -126,3 +126,16 @@ function deleteVideo($idVideo){
     $query = $db->prepare("DELETE FROM video WHERE idVideo = ?");
     return ($query->execute(array($idVideo)));
 }
+
+function checkPassword ($idVideo, $mdp)
+{
+    $db = connectDb();
+    $sql = "SELECT MDP FROM video WHERE idVideo = ?";
+    $query = $db->prepare($sql);
+
+    if ($query->fetch() == $mdp) {
+        return true;
+    } else {
+        return false;
+    }
+}

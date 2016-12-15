@@ -7,6 +7,7 @@ $description = '';
 
 require_once '../model/video.php';
 
+
 if (filter_has_var(INPUT_POST, 'delete')) {
     $idVideo = filter_input(INPUT_POST, 'idVideo', FILTER_VALIDATE_INT);
 

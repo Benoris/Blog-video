@@ -100,6 +100,9 @@ require_once 'htmltools.php';
                 <p><?php echo $video['Description'] ?></p>
                 <form method="post" action="controllers/deletevideo.php">
                     <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
+                    <?php if(isset($video['MDP'])) : ?>
+                    <p>Mot de passe : <input type="password" name="mdp" required></p>                    
+                    <?php endif; ?>
                     <input class="btn btn-primary" type="submit" name="delete" value="Supprimer"><span class="glyphicon glyphicon-chevron-right"></span>
                 </form>
             </div>
