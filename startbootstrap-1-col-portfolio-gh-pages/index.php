@@ -19,7 +19,7 @@ try {
        case 'deletevideo':
             require_once 'controllers/deletevideo.php';
            break;            
-        
+      
     }
 } catch (Exception $e) {
     require_once 'views/500.php';

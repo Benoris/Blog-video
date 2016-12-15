@@ -29,15 +29,16 @@ if (filter_has_var(INPUT_POST,'submit')) {
         {
             require_once '../model/video.php';
             $idVideo = addVideo($title, $soustitre, $description, $link, $mdp,$categorie);
-            include 'listvideo.php';
+            header ("location:../index.php");
+            //header ('location:index.php');
             exit;
     }
     else{
-        header("Location:listvideo.php");
+        header ("location:../index.php");
         exit();
     }
 }
 else{
-    header("Location:listvideo.php");
+    header ("location:../index.php");
         exit();
 }

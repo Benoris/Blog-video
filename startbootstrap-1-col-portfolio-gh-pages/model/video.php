@@ -124,15 +124,24 @@ function deleteVideo($idVideo) {
     return ($query->execute(array($idVideo)));
 }
 
-function checkPassword ($idVideo, $mdp)
-{
+/**
+ * 
+ * @param type $idVideo
+ * @param type $mdp
+ * @return boolean
+ */
+function checkPassword($idVideo, $mdp) {
     $db = connectDb();
     $sql = "SELECT MDP FROM video WHERE idVideo = ?";
     $query = $db->prepare($sql);
-    $query ->execute(array($idVideo));
-    if ($query->fetch() == $mdp) {
+    $query->execute(array($idVideo));
+
+    $result = $query->fetch();
+    if ($result[0] == $mdp) {
         return true;
-    } else {
+    } /*elseif ($result[0] == null) {
+        return true;
+    }*/ else {
         return false;
     }
 }
