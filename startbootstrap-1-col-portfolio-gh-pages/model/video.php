@@ -129,7 +129,7 @@ function checkPassword ($idVideo, $mdp)
     $db = connectDb();
     $sql = "SELECT MDP FROM video WHERE idVideo = ?";
     $query = $db->prepare($sql);
-
+    $query ->execute(array($idVideo));
     if ($query->fetch() == $mdp) {
         return true;
     } else {
