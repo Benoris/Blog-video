@@ -6,9 +6,11 @@
  * and open the template in the editor.
  */
 
+$idVideo = filter_input(INPUT_POST, 'idVideo', FILTER_VALIDATE_INT);
+
 require_once 'model/video.php';
 
-$video = getVideo($_POST['idVideo']);
+$video = getVideo($idVideo);
 $categories = getCategorie();
 
 include 'view/updateform.php';
