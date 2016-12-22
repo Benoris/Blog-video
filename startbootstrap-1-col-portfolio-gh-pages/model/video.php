@@ -94,6 +94,9 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
  * @return type
  */
 function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie) {
+    if($mdp == ""){
+        $mdp = null;
+    }
     $db = connectDb();
     $sql = "UPDATE video SET "
             . "Description = :desc, "
