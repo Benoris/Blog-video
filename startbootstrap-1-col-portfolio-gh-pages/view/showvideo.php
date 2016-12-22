@@ -127,6 +127,41 @@ session_start();
             </div>
         </div>
         <?php endforeach; ?>
+        <?php foreach ($filter as $f) ://On récupère la liste des données?>
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <iframe width="650" height="300" src="<?php echo $f['Lien']//le lien de la vidéo ?>" frameborder="0" allowfullscreen></iframe>
+                </a>
+            </div>
+            <div class="col-md-5">
+                <?php//Ici on récupère les données pour les ajouter dans notre site ?>
+                <h3><?php echo $f['Titre']//titre de la vidéo ?></h3>
+                <h4><?php echo $f['SousTitre']//sous titre de la vidéo ?></h4>
+                <p><?php echo $f['Description']//description de la vidéo ?></p>
+                
+                                <!-- Ici on a le formulaire pour supprimer la vidéos -->                
+                <form method="post" action="controllers/deletevideo.php">
+                    <input type="hidden" name="idVideo" value="<?php echo $f['idVideo']//ici on cache l'id de la vidéo pour poouvoir s'en servir plus tard ?>">
+                    
+                    <!-- Condition pour le mot de passe -->
+                    <?php if(isset($f['MDP'])) ://Si il éxiste alors on affiche un input type password ?>
+                    <p>Mot de passe : <input type="password" name="mdp" required></p>                    
+                    <?php if(isset($_SESSION['error']))
+                        echo $_SESSION['error']; ?>
+                    <?php endif; ?>
+                    <input class="btn btn-primary" type="submit" name="delete" value="Supprimer"><span class="glyphicon glyphicon-chevron-right"></span>
+                    </form>
+                
+                                <!-- Ici le formulaire pour modifier la vidéo -->
+                <form action="?action=updatevideo" method="post">
+                    <input type="hidden" name="idVideo" value="<?php echo $f['idVideo'] ?>">
+                    <input class="btn btn-primary" type="submit" name="update" value="Modifier"><span class="glyphicon glyphicon-pencil"></span>
+                </form>
+                
+            </div>
+        </div>
+        <?php endforeach; ?>
         <!-- /.row -->
 
         <hr>

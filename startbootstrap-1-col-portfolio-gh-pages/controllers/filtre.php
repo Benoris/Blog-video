@@ -5,7 +5,7 @@ $idCategorie = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
 
 if(filter_has_var(INPUT_POST, 'rechercher')){ 
     
-    filterVideo($idCategorie);
+     $filter = filterVideo($idCategorie);
     //include 'controllers/listvideo.php';
     include 'view/showvideo.php';
 }
