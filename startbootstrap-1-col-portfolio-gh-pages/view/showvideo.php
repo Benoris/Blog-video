@@ -71,7 +71,7 @@ session_start();
         </div>
         <div id="divcat">
             
-            <form action="controllers/filtre.php" method="post">
+            <form action="?action=filtre" method="post">
                 <label for="cat">Categorie:</label>
                 <select name="categorie">
                     <?php foreach ($categories as $categorie) :?>

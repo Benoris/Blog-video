@@ -21,6 +21,9 @@ if (empty($action)) {
        case 'updatevideo':
             require_once 'controllers/updatevideo.php';
             break;
+        case 'filtre':
+            require_once 'controllers/filtre.php';
+            break;
       
     }
 
