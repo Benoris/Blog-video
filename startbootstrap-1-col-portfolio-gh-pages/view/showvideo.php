@@ -103,7 +103,7 @@ session_start();
                 <form method="post" action="controllers/deletevideo.php">
                     <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
                     <?php if(isset($video['MDP'])) : ?>
-                    <p>Mot de passe : <input type="password" name="mdp" required></p>
+                    <p>Mot de passe : <input type="password" name="mdp" required></p>                    
                     <?php if(isset($_SESSION['error']))
                         echo $_SESSION['error']; ?>
                     <?php endif; ?>
