@@ -5,7 +5,6 @@ if (empty($action)) {
     $action = 'listvideo';
 }
 
-try {
     switch ($action) {
         case 'listvideo':
             require_once 'controllers/listvideo.php';
@@ -24,8 +23,5 @@ try {
             break;
       
     }
-} catch (Exception $e) {
-    require_once 'views/500.php';
-}
 
 
