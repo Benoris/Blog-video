@@ -83,8 +83,7 @@ session_start();
                     <?php foreach ($categories as $categorie) :?>
                     <option value="<?php echo $categorie['idCategorie']; ?>"><?php echo $categorie['NomCategorie']; ?></option>                    
                     <?php endforeach; ?>
-                </select>
-                <!--<input type="hidden" name="idCategorie" value="<?php// echo $categorie['idCategorie']; ?>">-->
+                </select>                
                 <input type="submit" name="rechercher" value="Rechercher">
             </form>
             
