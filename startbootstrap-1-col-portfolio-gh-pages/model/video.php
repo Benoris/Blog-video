@@ -96,21 +96,13 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
 function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
     $sql = "UPDATE video
-SET Description=:description, Titre=:titre, SousTitre =:soustitre, Lien = :lien, MDP = :mdp, idCategorie = :categorie
-WHERE idVideo = :idvideo ;";
+SET Description=?, Titre=?, SousTitre =?, Lien = ?, MDP = ?, idCategorie = ?
+WHERE idVideo = ? ;";
     $request = $db->prepare($sql);
-    if ($request->execute(array(
-                'description' => $description,
-                'soustitre' => $soustitre,
-                'titre' => $title,
-                'lien' => $link,
-                'mdp' => $mdp,
-                'categorie' => $categorie,
-                'idvideo' => $idVideo
-            ))) {
-        return $db->lastInsertId();
+    if ($request->execute(array($description, $title, $soustitre, $link, $mdp, $categorie, $idVideo))) {
+        return true;
     } else {
-        return NULL;
+        return false;
     }
 }
 
@@ -139,9 +131,9 @@ function checkPassword($idVideo, $mdp) {
     $result = $query->fetch();
     if ($result[0] == $mdp) {
         return true;
-    } /*elseif ($result[0] == null) {
-        return true;
-    }*/ else {
+    } /* elseif ($result[0] == null) {
+      return true;
+      } */ else {
         return false;
     }
 }

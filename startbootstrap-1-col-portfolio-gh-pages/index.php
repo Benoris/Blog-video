@@ -18,7 +18,10 @@ try {
            break;
        case 'deletevideo':
             require_once 'controllers/deletevideo.php';
-           break;            
+           break;
+       case 'updatevideo':
+            require_once 'controllers/updatevideo.php';
+            break;
       
     }
 } catch (Exception $e) {
