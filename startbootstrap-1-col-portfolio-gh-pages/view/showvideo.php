@@ -99,6 +99,7 @@ session_start();
                 <h3><?php echo $video['Titre'] ?></h3>
                 <h4><?php echo $video['SousTitre'] ?></h4>
                 <p><?php echo $video['Description'] ?></p>
+                
                 <form method="post" action="controllers/deletevideo.php">
                     <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
                     <?php if(isset($video['MDP'])) : ?>
@@ -107,7 +108,13 @@ session_start();
                         echo $_SESSION['error']; ?>
                     <?php endif; ?>
                     <input class="btn btn-primary" type="submit" name="delete" value="Supprimer"><span class="glyphicon glyphicon-chevron-right"></span>
+                    </form>
+                
+                <form action="?action=updatevideo" method="post">
+                    <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
+                    <input class="btn btn-primary" type="submit" name="update" value="Modifier"><span class="glyphicon glyphicon-pencil"></span>
                 </form>
+                
             </div>
         </div>
         <?php endforeach; ?>
