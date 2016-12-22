@@ -98,7 +98,7 @@
                     <div class="form-group">
                         <label for="pwd">Mot de passe:</label>
                         <input type="password" name="pwd" value="" id="pwd">
-                        <input type="hidden" name="idVideo" value="<?php $video['idVideo']?>">
+                        <input type="hidden" name="idVideo" value="<?php echo $video['idVideo']?>">
                     </div>
                     <br>
                     <p><input type="submit" name="submit" id="submit" value="Modifier"></p>

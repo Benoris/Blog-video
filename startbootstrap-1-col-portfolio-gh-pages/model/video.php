@@ -95,14 +95,27 @@ function addVideo($title, $soustitre, $description, $link, $mdp, $categorie) {
  */
 function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $categorie) {
     $db = connectDb();
-    $sql = "UPDATE video
-SET Description=?, Titre=?, SousTitre =?, Lien = ?, MDP = ?, idCategorie = ?
-WHERE idVideo = ? ;";
+    $sql = "UPDATE video SET "
+            . "Description = :desc, "
+            . "Titre = :titre, "
+            . "SousTitre = :soustitre, "
+            . "Lien = :link, "
+            . "MDP = :mdp, "
+            . "idCategorie = :cat "
+            . "WHERE idVideo = :idVideo";
+
     $request = $db->prepare($sql);
-    if ($request->execute(array($description, $title, $soustitre, $link, $mdp, $categorie, $idVideo))) {
-        return true;
+    if ($request->execute(array(
+                'desc' => $description,
+                'titre' => $title,
+                'soustitre' => $soustitre,
+                'link' => $link,
+                'mdp' => $mdp,
+                'cat' => $categorie,
+                'idVideo' => $idVideo))) {
+        return $idVideo;
     } else {
-        return false;
+        return NULL;
     }
 }
 
