@@ -1,9 +1,10 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Nom du fichier : listcategorie.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : controlleur qui affiche qui permet d'afficher dans la view les catégorie
  */
 
 require_once 'model/video.php';

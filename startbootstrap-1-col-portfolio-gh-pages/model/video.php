@@ -4,9 +4,10 @@
  * Nom du fichier : video.php
  * Auteur : Pascucci Lino / Dinh Tony
  * 24.11.2016
+ * Description : modèle qui contient les fonction pour les (la) vidéo(s)
  */
 
-require_once 'dbconnection.php';
+require_once 'dbconnection.php';//pour pouvoir se connecter à la BDD
 
 /**
  * fonction qui retourne une liste avec les données sur les vidéos
@@ -17,7 +18,11 @@ function getVideos() {
     $query->execute(array());
     return $query->fetchAll();
 }
-
+/**
+ * Récupère une vidéo en fonction de son Id
+ * @param type $idVideo
+ * @return type
+ */
 function getVideo($idVideo) {
     $db = connectDb();
     $query = $db->prepare("SELECT * FROM video WHERE idVideo = ?");
@@ -27,7 +32,7 @@ function getVideo($idVideo) {
 }
 
 /**
- * 
+ * Récupère toute les catégories
  * @return type
  */
 function getCategorie() {
@@ -37,7 +42,7 @@ function getCategorie() {
 }
 
 /**
- * 
+ * cette fonction nous permet de filtrer les vidéos
  * @param type $idCategorie
  * @return type
  */
@@ -46,7 +51,8 @@ function filterVideo($idCategorie) {
     $sql = "SELECT * FROM video WHERE `idCategorie` =?";
     $query = $bdd->prepare($sql);
     $query->execute(array($idCategorie));
-    return $query->fetch();
+    $result = $query->fetch();
+    return $result;
 }
 
 /**
@@ -123,7 +129,7 @@ function updateVideo($idVideo, $title, $soustitre, $description, $link, $mdp, $c
 }
 
 /**
- * 
+ * Suppression de données (des vidéos)
  * @param type $idVideo
  */
 function deleteVideo($idVideo) {
@@ -133,7 +139,7 @@ function deleteVideo($idVideo) {
 }
 
 /**
- * 
+ * Controle si le mot de passe est juste en fonction de la vidéo qu'on a séléctioné
  * @param type $idVideo
  * @param type $mdp
  * @return boolean

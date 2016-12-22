@@ -1,4 +1,11 @@
-<?php ?>
+<?php 
+/**
+ * Nom du fichier : addform.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : view qui affiche l'ajout d'une vidéo
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

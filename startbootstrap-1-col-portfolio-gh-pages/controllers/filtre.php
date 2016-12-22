@@ -1,15 +1,12 @@
 <?php
 
 require_once 'model/video.php';
+$idCategorie = filter_input(INPUT_POST, 'categorie', FILTER_VALIDATE_INT);
 
-if(filter_has_var(INPUT_POST, 'rechercher')){
-    if(isset($_POST['idCategorie']))
-    {
-        $id = $_POST['idCategorie'];
-    }
+if(filter_has_var(INPUT_POST, 'rechercher')){ 
     
-    filterVideo($id);
+    filterVideo($idCategorie);
     //include 'controllers/listvideo.php';
-    header('location:index.php');
+    include 'view/showvideo.php';
 }
 

@@ -1,4 +1,11 @@
 <?php 
+/*
+ * Nom du fichier : index.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : Controleur principale
+ */
+//redirection dans différent controleurs
 
 $action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_URL);
 if (empty($action)) {

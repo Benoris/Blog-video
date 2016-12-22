@@ -3,6 +3,7 @@
  * Nom du fichier : dbconnection.php
  * Auteur : Pascucci Lino / Dinh Tony
  * 24.11.2016
+ * Description : connexion à la BDD
  */
 
 

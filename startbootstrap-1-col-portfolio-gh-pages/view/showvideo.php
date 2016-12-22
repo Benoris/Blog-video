@@ -1,5 +1,11 @@
 <?php
-require_once 'htmltools.php';
+
+/**
+ * Nom du fichier : showvideo.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : view qui affiche les vidéos
+ */
 session_start();
 ?>
 <!DOCTYPE html>
@@ -87,7 +93,7 @@ session_start();
         <!-- /.row -->
 
         <!-- Project One -->
-        <?php foreach ($videos as $video) :?>
+        <?php foreach ($videos as $video) ://On récupère la liste des données?>
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
@@ -96,13 +102,16 @@ session_start();
             </div>
             <div class="col-md-5">
                 <?php//Ici on récupère les données pour les ajouter dans notre site ?>
-                <h3><?php echo $video['Titre'] ?></h3>
-                <h4><?php echo $video['SousTitre'] ?></h4>
-                <p><?php echo $video['Description'] ?></p>
+                <h3><?php echo $video['Titre']//titre de la vidéo ?></h3>
+                <h4><?php echo $video['SousTitre']//sous titre de la vidéo ?></h4>
+                <p><?php echo $video['Description']//description de la vidéo ?></p>
                 
+                                <!-- Ici on a le formulaire pour supprimer la vidéos -->                
                 <form method="post" action="controllers/deletevideo.php">
-                    <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
-                    <?php if(isset($video['MDP'])) : ?>
+                    <input type="hidden" name="idVideo" value="<?php echo $video['idVideo']//ici on cache l'id de la vidéo pour poouvoir s'en servir plus tard ?>">
+                    
+                    <!-- Condition pour le mot de passe -->
+                    <?php if(isset($video['MDP'])) ://Si il éxiste alors on affiche un input type password ?>
                     <p>Mot de passe : <input type="password" name="mdp" required></p>                    
                     <?php if(isset($_SESSION['error']))
                         echo $_SESSION['error']; ?>
@@ -110,6 +119,7 @@ session_start();
                     <input class="btn btn-primary" type="submit" name="delete" value="Supprimer"><span class="glyphicon glyphicon-chevron-right"></span>
                     </form>
                 
+                                <!-- Ici le formulaire pour modifier la vidéo -->
                 <form action="?action=updatevideo" method="post">
                     <input type="hidden" name="idVideo" value="<?php echo $video['idVideo'] ?>">
                     <input class="btn btn-primary" type="submit" name="update" value="Modifier"><span class="glyphicon glyphicon-pencil"></span>

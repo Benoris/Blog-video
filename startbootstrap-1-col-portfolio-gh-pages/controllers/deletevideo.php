@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Nom du fichier : deletevideo.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : supprime la vidéo
+ */
+
 $idVideo = -1;
 $titre = '';
 $soustitre = '';

@@ -1,4 +1,11 @@
-<?php ?>
+<?php 
+/**
+ * Nom du fichier : updateform.php
+ * Auteur : Pascucci Lino / Dinh Tony
+ * 24.11.2016
+ * Description : view qui affiche la modification d'une vidéo
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 
